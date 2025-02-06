@@ -5,7 +5,7 @@ RUN go install github.com/google/go-jsonnet/cmd/jsonnet@latest && \
   go install github.com/google/go-jsonnet/cmd/jsonnetfmt@latest && \
   go install github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@v0.6.0
 
-FROM mcr.microsoft.com/devcontainers/python:3.10
+FROM mcr.microsoft.com/devcontainers/python:3.13
 
 COPY --from=builder /go/bin/jsonnet /go/bin/jsonnet-lint /go/bin/jsonnetfmt /go/bin/jb /usr/local/bin/
 COPY --from=ghcr.io/siderolabs/talosctl:v1.8.1 /talosctl /usr/local/bin/talosctl
