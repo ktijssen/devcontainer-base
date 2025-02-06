@@ -8,9 +8,7 @@
     "ghcr.io/rio/features/k3d": {},
     "ghcr.io/rio/features/k9s": {},
     "ghcr.io/ktijssen/features/kustomize": {},
-    "ghcr.io/ktijssen/features/gum": {
-      "version": "0.15.2"
-    },
+    "ghcr.io/ktijssen/features/gum": {},
     "ghcr.io/rio/features/skaffold": {},
     "ghcr.io/devcontainers-contrib/features/kind:1": {},
     "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {
