@@ -9,7 +9,7 @@
     "ghcr.io/rio/features/k9s": {},
     "ghcr.io/ktijssen/features/kustomize": {},
     "ghcr.io/ktijssen/features/gum": {
-      "version": "0.15.1"
+      "version": "0.15.2"
     },
     "ghcr.io/rio/features/skaffold": {},
     "ghcr.io/devcontainers-contrib/features/kind:1": {},
