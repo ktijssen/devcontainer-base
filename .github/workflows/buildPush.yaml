@@ -1,8 +1,5 @@
 name: "Build and Push DevContainer"
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -40,3 +37,4 @@ jobs:
       - name: Build Devcontainer
         run: |
           devcontainer build .devcontainer --workspace-folder . --platform "linux/arm64,linux/amd64" --push --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
+          devcontainer build .devcontainer --workspace-folder . --platform "linux/arm64,linux/amd64" --push --image-name kevintijssen/devcontainer-base:latest
