@@ -44,7 +44,7 @@ The container is built using a **multi-stage Dockerfile** and a **Dev Container 
 The container image is **automatically built and pushed using GitHub Actions every Sunday**. This ensures that all dependencies, tools, and base images stay up to date.
 
 ### ⚙️ CI/CD Workflow:
-- GitHub Actions triggers a **weekly build**.
+- GitHub Actions triggers a **monthly build**.
 - The updated image is pushed to **Docker Hub** under the name **`kevintijssen/devcontainer-base`**.
 
 ## 🔧 Customization

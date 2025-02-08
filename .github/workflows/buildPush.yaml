@@ -25,16 +25,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Get Current Year and Week
-        id: year-week
-        run: |
-          CURRENT_YEAR=$(date +'%Y')
-          CURRENT_WEEK=$(date +'%U')
-          echo "YEAR=${CURRENT_YEAR}" >> $GITHUB_ENV
-          echo "WEEK=${CURRENT_WEEK}" >> $GITHUB_ENV
-          echo "Tag for Docker: ${CURRENT_YEAR}.${CURRENT_WEEK}"
+      - name: Get Current Year and Month
+        run: echo "IMAGE_TAG=$(date +'%Y.%m')" >> $GITHUB_ENV
 
       - name: Build Devcontainer
         run: |
-          devcontainer build .devcontainer --workspace-folder . --platform "linux/arm64,linux/amd64" --push --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
+          devcontainer build .devcontainer --workspace-folder . --platform "linux/arm64,linux/amd64" --push --image-name kevintijssen/devcontainer-base:${{ env.IMAGE_TAG }}
           devcontainer build .devcontainer --workspace-folder . --platform "linux/arm64,linux/amd64" --push --image-name kevintijssen/devcontainer-base:latest
