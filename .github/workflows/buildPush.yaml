@@ -32,7 +32,7 @@ jobs:
           echo "Tag for Docker: ${CURRENT_YEAR}.${CURRENT_WEEK}"
 
       - name: Build Devcontainer
-        run: devcontainer build --workspace-folder . --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
+        run: devcontainer build --workspace-folder . --platform linux/amd64,linux/arm64 --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
 
       - name: Add latest tag
         run: docker tag kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }} kevintijssen/devcontainer-base:latest
