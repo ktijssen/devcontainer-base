@@ -34,6 +34,9 @@ jobs:
       - name: Build Devcontainer
         run: devcontainer build --workspace-folder . --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
 
+      - name: Add latest tag
+        run: docker tag kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }} kevintijssen/devcontainer-base:latest
+
       - name: Push to Docker Hub
         run: |
           docker push kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
