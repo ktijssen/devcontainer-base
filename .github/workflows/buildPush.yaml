@@ -1,0 +1,37 @@
+name: "Build and Push DevContainer"
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Get Current Year and Week
+        id: year-week
+        run: |
+          CURRENT_YEAR=$(date +'%Y')
+          CURRENT_WEEK=$(date +'%U')
+          echo "YEAR=${CURRENT_YEAR}" >> $GITHUB_ENV
+          echo "WEEK=${CURRENT_WEEK}" >> $GITHUB_ENV
+          echo "Tag for Docker: ${CURRENT_YEAR}.${CURRENT_WEEK}"
+
+      - name: Build Devcontainer
+        run: devcontainer build --workspace-folder . --image-name kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
+
+      - name: Push to Docker Hub
+        run: |
+          docker push kevintijssen/devcontainer-base:${{ env.YEAR }}.${{ env.WEEK }}
+          docker push kevintijssen/devcontainer-base:latest
