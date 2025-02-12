@@ -1,4 +1,4 @@
-FROM golang:1.23.6 AS builder
+FROM golang:1.24.0 AS builder
 
 RUN go install github.com/google/go-jsonnet/cmd/jsonnet@latest && \
   go install github.com/google/go-jsonnet/cmd/jsonnet-lint@latest && \
