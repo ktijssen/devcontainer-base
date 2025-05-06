@@ -26,18 +26,18 @@ RUN <<EOT
   echo "complete -F __start_kubectl k" | tee -a /home/vscode/.bashrc
   echo "source <(carapace _carapace)" | tee -a /home/vscode/.bashrc
     
-  # setup fzf
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install --all
-  cp ~/.fzf/bin/fzf /usr/local/bin/fzf
-  echo "source <(fzf --bash)" | tee -a /home/vscode/.bashrc
+  # # setup fzf
+  # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  # ~/.fzf/install --all
+  # cp ~/.fzf/bin/fzf /usr/local/bin/fzf
+  # echo "source <(fzf --bash)" | tee -a /home/vscode/.bashrc
   
-  git clone https://github.com/lincheney/fzf-tab-completion ~/.fzf-completion
-  cp ~/.fzf-completion/bash/fzf-bash-completion.sh /home/vscode/.fzf-bash-completion.sh
-  echo "source ~/.fzf-bash-completion.sh" | tee -a /home/vscode/.bashrc
-  echo "source ~/.fzf-completion/bash/fzf-bash-completion.sh" | tee -a ~/.bashrc
-  echo "bind -x '\"\t\": fzf_bash_completion'" | tee -a ~/.bashrc
-  echo "bind -x '\"\t\": fzf_bash_completion'" | tee -a /home/vscode/.bashrc
+  # git clone https://github.com/lincheney/fzf-tab-completion ~/.fzf-completion
+  # cp ~/.fzf-completion/bash/fzf-bash-completion.sh /home/vscode/.fzf-bash-completion.sh
+  # echo "source ~/.fzf-bash-completion.sh" | tee -a /home/vscode/.bashrc
+  # echo "source ~/.fzf-completion/bash/fzf-bash-completion.sh" | tee -a ~/.bashrc
+  # echo "bind -x '\"\t\": fzf_bash_completion'" | tee -a ~/.bashrc
+  # echo "bind -x '\"\t\": fzf_bash_completion'" | tee -a /home/vscode/.bashrc
 EOT
 
 USER vscode
