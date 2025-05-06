@@ -6,7 +6,8 @@ This repository provides a **Dev Container** setup for Kubernetes, Golang, and c
 
 The container is built using a **multi-stage Dockerfile** and a **Dev Container configuration** (`devcontainer.json`).  
 
-### 🔨 Base Images:
+### 🔨 Base Images
+
 1. **Go 1.23.6** (Builder stage)  
    - Installs **Jsonnet** tools and **jsonnet-bundler**.
 2. **Microsoft DevContainers Python 3.13** (Final image)  
@@ -14,13 +15,18 @@ The container is built using a **multi-stage Dockerfile** and a **Dev Container 
 
 ### 🛠 Installed Tools
 
-#### ✅ From Dockerfile:
+#### ✅ From Dockerfile
+
 - **Jsonnet** (`jsonnet`, `jsonnet-lint`, `jsonnetfmt`) – JSON templating
 - **Jsonnet Bundler** (`jb`) – Package manager for Jsonnet
 - **Git & Entr** – Version control and file watching
 - **Kubernetes alias** (`alias k=kubectl`)
+- Ripgrep - Fast grepping (<https://github.com/BurntSushi/ripgrep>)
+- Carapace - Multishell completion (<https://github.com/carapace-sh/carapace-bin>)
+- fzf - A command line fuzzy finder (<https://github.com/junegunn/fzf>)
 
-#### ✅ From DevContainer Features:
+#### ✅ From DevContainer Features
+
 | Feature | Description |
 |---------|------------|
 | **argo-cd** | GitOps continuous delivery tool. |
@@ -38,12 +44,12 @@ The container is built using a **multi-stage Dockerfile** and a **Dev Container 
 | **skaffold** | Continuous development and deployment for Kubernetes. |
 | **talosctl** | Command-line tool for managing Talos clusters. |
 
-
 ## 🔄 Automated Builds & Updates
 
 The container image is **automatically built and pushed using GitHub Actions every Sunday**. This ensures that all dependencies, tools, and base images stay up to date.
 
-### ⚙️ CI/CD Workflow:
+### ⚙️ CI/CD Workflow
+
 - GitHub Actions triggers a **monthly build**.
 - The updated image is pushed to **Docker Hub** under the name **`kevintijssen/devcontainer-base`**.
 
@@ -51,7 +57,6 @@ The container image is **automatically built and pushed using GitHub Actions eve
 
 - Modify `.devcontainer/devcontainer.json` to add/remove features.
 - Update the `Dockerfile` to install additional tools or dependencies.
-
 
 ## 📝 Notes
 
