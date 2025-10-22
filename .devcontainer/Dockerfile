@@ -7,7 +7,7 @@ RUN <<EOT
   go install github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@v0.6.0
 EOT
 
-FROM mcr.microsoft.com/devcontainers/python:3.13
+FROM mcr.microsoft.com/devcontainers/python:3.14
 
 COPY --from=builder /go/bin/jsonnet /go/bin/jsonnet-lint /go/bin/jsonnetfmt /go/bin/jb /usr/local/bin/
 
