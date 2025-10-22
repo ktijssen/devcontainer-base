@@ -19,7 +19,7 @@
     },
     "ghcr.io/audacioustux/devcontainers/cilium:1": {},
     "ghcr.io/devcontainers-extra/features/go-task": {},
-    "ghcr.io/devcontainers/features/docker-in-docker": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube": {
       "minikube": "none"
