@@ -1,4 +1,4 @@
-FROM golang:1.25.4 AS builder
+FROM golang:1.26.0 AS builder
 
 RUN <<EOT 
   go install github.com/google/go-jsonnet/cmd/jsonnet@latest
